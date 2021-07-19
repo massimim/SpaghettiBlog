@@ -1,23 +1,26 @@
 ---
 layout: post
-title: Gnome with Ubuntu Server (20.04) 
-subtitle: With graphical interface
-tags: [linux, ubuntu, installation]
+title: Jekyll Local Server
+subtitle: how to install, update, run
+tags: [Jekyll, blog]
 comments: false
 ---
 
-Ubuntu server installs just few packages.
-To enable Gnome desktop from command line on a server installation:
+How to install jekyll: 
 
 ```bash
-sudo apt update
-sudo apt upgrade
-sudo apt install tasksel
-sudo tasksel install ubuntu-desktop-minimal
-sudo reboot
-systemctl status gdm
+sudo apt-get install ruby-full build-essential zlib1g-dev
+echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+gem install jekyll bundler
 ```
-This has been tested with ubuntu 20.04.
 
-Reference material: [Ubuntu Linux install Gnome desktop on server](https://www.cyberciti.biz/faq/ubuntu-linux-install-gnome-desktop-on-server/)
+To configure the blog, run the following from the blog root diretory:
 
+```bash
+bundle install # only once
+bundle update jekyll # only when some configurations are changed 
+bundle exec jekyll serve # to run the server locally
+```

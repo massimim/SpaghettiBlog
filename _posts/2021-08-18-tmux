@@ -1,0 +1,18 @@
+---
+layout: post
+title: tmux
+subtitle: pdf version
+tags: [linux, tools, sysadmin]
+comments: false
+---
+
+Recently discovered tmux as an nice alternative to screen. A short introduction can be found [here](https://linuxize.com/post/getting-started-with-tmux/).
+
+```bash
+tmux new -s session_name
+tmux ls
+tmux attach-session -t 0
+```
+
+
+
